@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'knox',
     'users',
     'students',
-    'mentor'
+    'mentor',
+    'phonenumber_field'
 ]
 
 MIDDLEWARE = [

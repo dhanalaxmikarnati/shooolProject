@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher List</title>
+  <link rel="stylesheet" href="{% static 'styles/teachers.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Teacher List</h1>
+  </header>
+  
+  <section class="teacher-list">
+    <h2>Teachers</h2>
+    <ul>
+      <li>
+        <div class="teacher">
+          <img src="{% static 'images/teacher1.jpg' %}" alt="Teacher 1">
+          <div class="teacher-info">
+            <h3>Professor Adams</h3>
+            <p>Subject: Mathematics</p>
+            <p>Experience: 10 years</p>
+            <p>Email: adams@example.com</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="teacher">
+          <img src="{% static 'images/teacher2.jpg' %}" alt="Teacher 2">
+          <div class="teacher-info">
+            <h3>Ms. Garcia</h3>
+            <p>Subject: Science</p>
+            <p>Experience: 8 years</p>
+            <p>Email: garcia@example.com</p>
+          </div>
+        </div>
+      </li>
+      <!-- Add more teachers -->
+    </ul>
+  </section>
+  
+  <footer>
+    <p>&copy; 2023 Teacher List</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{%static 'styles/register_style.css' %}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="title"><span>Register Form</span></div>  
+            <form action="#">
+                <div class="row">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                    <input type="text" placeholder="UserName" required>
+                    <input type="Email" placeholder="Email" required>
+                    <input type="Number" placeholder="Ph Number" required>
+                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Confirm-Password" required>
+                </div>
+                <div class="row button ">
+                    <input type="submit" value="Register">
+                </div>
+                <div class="signup-link">Already have an account
+                    <a href="loging">signup Now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

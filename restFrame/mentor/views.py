@@ -1,54 +1,45 @@
-from django.shortcuts import render
-from django.forms import PasswordInput
 from django.shortcuts import redirect, render
-from django.contrib import messages
-from django.contrib.auth.models import User,auth
+from django.shortcuts import render, get_object_or_404
+from .models import Mentor,Student
+from .forms import AddStudentForm  # Create a form to add students to mentor
 
-# Create your views here.
-def login(request):
+def add_student_to_mentor(request, mentor_id):
+    mentor = get_object_or_404(Mentor, pk=mentor_id)
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-       
-        user = auth.authenticate(username=username,password=password)
-        if user is not None:
-          auth.login(request,user)
-         
-          return redirect("/")
-        else:
-           messages.info(request,"invalid credentials.....")
-           return redirect('login')
+        form = AddStudentForm(request.POST)
+        if form.is_valid():
+            student_email = form.cleaned_data['student_email']
+            student = Student.objects.get(studentEmail=student_email)  # Get student by email
+            mentor.students.add(student)  # Add student to mentor's students
+            # You might want to add more logic or redirect to a success page here
     else:
-      
-      return render(request,'login.html')
+        form = AddStudentForm()
+    
+    return render(request, 'add_student.html', {'form': form})
 
-def register(request):
-    if request.method == 'POST':
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        password1 = request.POST.get('password1')
-        password2 = request.POST.get('password2')
-        if(password1==password2):
-             if User.objects.filter(username=username).exists():
-                messages.info(request,'Username already taken')
-                return redirect('register')
-             elif User.objects.filter(email=email).exists():
-                messages.info(request,'email already taken')
-                return redirect('register')
-             else:
-                user = User.objects.create_user(username=username,first_name=first_name,last_name=last_name,email=email,password=password1)
-                user.save();
-                #print('user created')
-                return redirect('login')
-        else:
-             messages.info(request,'password not matching.....')
-             return redirect('register')
-        return redirect('/')
-    else:
-        return render(request,'register.html')
+
+def mentor_students(request, mentor_id):
+    mentor = Mentor.objects.get(pk=mentor_id)
+    students = mentor.students.all()  # Access all students associated with this mentor
+    return render(request, 'mentor_students.html', {'students': students})
+
+
+def add_student(request):
+    return render(request,'add_student.html')
+def school(request):
+    return render(request,'school.html')
+def students(request):
+    return render(request,'students.html')
+def teachers(request):
+    return render(request,'teachers.html')
+def courses(request):
+    return render(request,'courses.html')
+def grades(request):
+    return render(request,'grades.html')
+def loging(request):
+    return render(request,'loging.html')
+def registers(request):
+    return render(request,'registers.html')
 
 def logout(request):
-   auth.logout(request)
-   return redirect('/')         
+    return redirect('/')         

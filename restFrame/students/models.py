@@ -1,11 +1,14 @@
 from django.db import models
+# from phonenumber_field.modelfields import PhoneNumberField
+
 
 # Create your models here.
 class Student(models.Model):
-    firstname=models.CharField(max_length=30)
-    email=models.EmailField()
-    username=models.CharField(max_length=30)
-    password=models.CharField(max_length=12)
-
+    studentName=models.CharField(max_length=50)
+    studentEmail=models.EmailField()
+    roll_number=models.IntegerField()
+    # phone_number= PhoneNumberField(null=False, blank=False, unique=True)
+    
+    
     def __str__(self):
-	    return self.username
+	    return self.studentName

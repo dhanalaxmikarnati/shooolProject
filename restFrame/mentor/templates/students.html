@@ -1,0 +1,47 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student List</title>
+  <link rel="stylesheet" href="{% static 'styles/students.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Student List</h1>
+  </header>
+  
+  <section class="student-list">
+    <h2>Students</h2>
+    <ul>
+      <li>
+        <div class="student">
+          <img src="{% static 'images/student1.jpg' %}" alt="Student 1">
+          <div class="student-info">
+            <h3>John Doe</h3>
+            <p>Grade: 10</p>
+            <p>Age: 16</p>
+            <p>Address: 123 Main Street</p>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="student">
+          <img src="{% static 'images/student2.jpg' %}" alt="Student 2">
+          <div class="student-info">
+            <h3>Jane Smith</h3>
+            <p>Grade: 11</p>
+            <p>Age: 17</p>
+            <p>Address: 456 Elm Street</p>
+          </div>
+        </div>
+      </li>
+      <!-- Add more students -->
+    </ul>
+  </section>
+  
+  <footer>
+    <p>&copy; 2023 Student List</p>
+  </footer>
+</body>
+</html>
