@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+    <!-- Add any additional styles or scripts here -->
+</head>
+<body>
+    <h1>Student Added Successfully!</h1>
+    <p><strong>Name:</strong> {{ student.name }}</p>
+    <p><strong>Email:</strong> {{ student.email }}</p>
+    <p><strong>Unique Code:</strong> {{ student.unique_code }}</p>
+    <p><strong>Aadhar:</strong> {{ student.aadhar }}</p>
+    <p><strong>Class Level:</strong> {{ student.class_level }}</p>
+    <p><strong>Address:</strong> {{ student.address }}</p>
+    <p><strong>Section:</strong> {{ student.section }}</p>
+
+    {% if student.pics %}
+        <img src="{{ student.pics.url }}" alt="Student Picture">
+    {% else %}
+        <p>No picture available</p>
+    {% endif %}
+
+    <!-- Add any additional content or links here -->
+</body>
+</html>

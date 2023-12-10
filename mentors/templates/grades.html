@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grades List</title>
+  <link rel="stylesheet" href="{% static 'styles/grades.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Grades List</h1>
+  </header>
+  
+  <section class="grades-list">
+    <h2>Grades</h2>
+    <table>
+      <tr>
+        <th>Student Name</th>
+        <th>Course</th>
+        <th>Grade</th>
+      </tr>
+      <tr>
+        <td>John Doe</td>
+        <td>Mathematics</td>
+        <td>A</td>
+      </tr>
+      <tr>
+        <td>Jane Smith</td>
+        <td>Science</td>
+        <td>B+</td>
+      </tr>
+      <!-- Add more grades -->
+    </table>
+  </section>
+  
+  <footer>
+    <p>&copy; 2023 Grades List</p>
+  </footer>
+</body>
+</html>

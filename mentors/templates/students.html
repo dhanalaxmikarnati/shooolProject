@@ -1,0 +1,65 @@
+{%load static%}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+        }
+        .student-info {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .student-info p {
+            margin-bottom: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+  <h1>Student Details</h1>
+  {%for student in students %}
+    
+    <div class="student-info">
+        {% if student %}
+            <p><strong>Name:</strong> {{ student.name }}</p>
+            <p><strong>Email:</strong> {{ student.email }}</p>
+            <p><strong>Unique Code:</strong> {{ student.unique_code }}</p>
+            <p><strong>Aadhar:</strong> {{ student.aadhar }}</p>
+            <p><strong>Class Level:</strong> {{ student.class_level }}</p>
+            <p><strong>Address:</strong> {{ student.address }}</p>
+            <p><strong>Section:</strong> {{ student.section }}</p>
+            <p><strong>Mentor:</strong> {{ student.mentor }}</p>
+            
+            {% if student.pics %}
+                <img src="{{student.pics.url}}" alt="#">
+            {% else %}
+                <p>No picture available</p>
+            {% endif %} 
+        {% else %}
+            <p>No student information available.</p>
+        {% endif %}
+      
+    </div>
+    {% endfor%}
+</body>
+</html>

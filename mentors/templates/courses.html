@@ -1,0 +1,41 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course List</title>
+  <link rel="stylesheet" href="{% static 'styles/courses.css' %}">
+</head>
+<body>
+  <header>
+    <h1>Course List</h1>
+  </header>
+  
+  <section class="course-list">
+    <h2>Courses</h2>
+    <ul>
+      <li>
+        <div class="course">
+          <h3>Mathematics</h3>
+          <p>Teacher: Professor Adams</p>
+          <p>Room: A101</p>
+          <p>Time: 9:00 AM - 10:30 AM</p>
+        </div>
+      </li>
+      <li>
+        <div class="course">
+          <h3>Science</h3>
+          <p>Teacher: Ms. Garcia</p>
+          <p>Room: B205</p>
+          <p>Time: 11:00 AM - 12:30 PM</p>
+        </div>
+      </li>
+      <!-- Add more courses -->
+    </ul>
+  </section>
+  
+  <footer>
+    <p>&copy; 2023 Course List</p>
+  </footer>
+</body>
+</html>

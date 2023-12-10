@@ -1,0 +1,92 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student to Mentor</title>
+    <meta charset="UTF-8">
+    <title>Student Information</title>
+    <link rel="stylesheet" href="{% static 'styles/add_student.css' %}">
+   
+</head>
+<body>
+    {%if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success text-center mb-3">
+    {{message}}
+    </div>
+    {% endfor %}
+  {%endif%}
+  
+    <h1>Add Student to Mentor</h1>
+    <form action="" enctype="multipart/form-data" class="student-form" method="POST" >
+        {% csrf_token %}
+
+        <!-- Select Mentor's Email -->
+    <label for="mentor_email">Select Mentor's Email:</label>
+    <select id="mentor_email" name="mentor_email" required>
+        {% for mentor in mentors %}
+            <option value="{{ mentor.email }}">{{ mentor.email }}</option>
+        {% endfor %}
+    </select><br><br>
+
+
+    <!-- Student Details -->
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="unique_code">Unique Code:</label>
+    <input type="text" id="unique_code" name="unique_code" required><br><br>
+
+    <label for="aadhar">Aadhar:</label>
+    <input type="text" id="aadhar" name="aadhar" required><br><br>
+
+    <label for="class_level">Class Level:</label>
+    <input type="text" id="class_level" name="class_level" required><br><br>
+
+    <label for="address">Address:</label>
+    <textarea id="address" name="address" required></textarea><br><br>
+
+    <label for="section">Section:</label>
+    <input type="text" id="section" name="section" required><br><br>
+
+    <label for="pics">Upload Picture:</label>
+    <input type="file" id="pics" name="pics"><br><br>
+
+    <input type="submit" value="Submit">
+    </form>
+
+
+    <h1>Student Details</h1>
+
+    {%for student in students %}
+    
+    <div class="student-info">
+        {% if student %}
+            <p><strong>Name:</strong> {{ student.name }}</p>
+            <p><strong>Email:</strong> {{ student.email }}</p>
+            <p><strong>Unique Code:</strong> {{ student.unique_code }}</p>
+            <p><strong>Aadhar:</strong> {{ student.aadhar }}</p>
+            <p><strong>Class Level:</strong> {{ student.class_level }}</p>
+            <p><strong>Address:</strong> {{ student.address }}</p>
+            <p><strong>Section:</strong> {{ student.section }}</p>
+            <p><strong>Mentor:</strong> {{ student.mentor }}</p>
+            
+            
+            {% if student.pics %}
+                <img src="{{student.pics.url}}" alt="#">
+            {% else %}
+                <p>No picture available</p>
+            {% endif %} 
+        {% else %}
+            <p>No student information available.</p>
+        {% endif %}
+    
+    </div>
+    {% endfor%}
+</body>
+</html>
+

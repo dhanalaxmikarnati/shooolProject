@@ -1,0 +1,42 @@
+<!-- mentor_detail.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentor Details</title>
+    <style>
+        /* Basic CSS styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .mentor-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .students-list {
+            margin-top: 20px;
+        }
+        .student-item {
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="mentor-info">
+        <h2>Mentor Details</h2>
+        <p><strong>Name:</strong> {{ mentor.name }}</p>
+        <p><strong>Email:</strong> {{ mentor.email }}</p>
+        <h3>Students</h3>
+        <ul class="students-list">
+            {% for student in students %}
+                <li class="student-item">{{ student.email }} - Unique Code: {{ student.unique_code }}</li>
+            {% empty %}
+                <li>No students added yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
